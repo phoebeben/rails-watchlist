@@ -4,8 +4,10 @@
 
 <ul>
 <%@movies.each do |movie|%>
+<% @bookmark = Bookmark.find_by(movie: movie.id, list: @list) %>
 <li>
-<p><%= movie.title %></p>
+<%= movie.title %> <%= link_to 'Delete',
+delete_movies_path(@bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 <% end %>
 </li>
 </ul>
