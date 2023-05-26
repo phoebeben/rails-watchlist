@@ -1,4 +1,13 @@
-<h1>Lists</h1>
+<h1 class="text-center">My Movie Lists</h1>
+
+<div id="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://www.grandsierraresort.com/hubfs/recreation/Grand-Sierra-Cinema-view-of-auditorium_q085_1920x1080.jpg');">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
 <% @lists.each do |list| %>
 <ul>
 <li><%= link_to list.name, list_path(list) %></li>
