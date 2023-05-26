@@ -1,5 +1,9 @@
 <h1><%= @list.name %></h1>
-<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <p>No image</p>
+<% end %>
 
 <p><%= link_to "Add a movie", new_list_bookmark_path(@list) %></p>
 
