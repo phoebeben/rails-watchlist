@@ -1,11 +1,22 @@
 .card {
-  ul {
-    list-style-type: none;
+
+  a {
+    text-decoration: none;
+    margin: 25px;
+    color: black;
   }
 
   padding: 5px;
   margin: 30px;
+  color: white;
+  box-shadow: 5px 6px 8px #eeeaea;
+  border-radius: 5px;
 }
-  .add-movie {
-    text-decoration: none;
-  }
+
+.add-movie {
+  text-decoration: none;
+}
+
+h1 {
+  color: black;
+}
