@@ -1,20 +1,28 @@
-<h1><%= @list.name %></h1>
-<% if @list.photo.attached? %>
-  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <p>No image</p>
-<% end %>
-
-<p><%= link_to "Add a movie", new_list_bookmark_path(@list) %></p>
-
-<ul>
-<%@movies.each do |movie|%>
-<% @bookmark = Bookmark.find_by(movie: movie.id, list: @list) %>
-<li>
-<%= movie.title %> <%= link_to 'Delete',
-delete_movies_path(@bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-<% end %>
-</li>
-</ul>
-
-<p><%= link_to "Back to my lists", root_path %></p>
+<div class="container">
+  <div class="card">
+    <h1><%= @list.name %></h1>
+  </div>
+  <div>
+    <% if @list.photo.attached? %>
+      <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+     <p>No image</p>
+    <% end %>
+  </div>
+    <p><%= link_to "Add a movie", new_list_bookmark_path(@list)%></p>
+  <div class="card">
+    <ul>
+      <%@movies.each do |movie|%>
+      <% @bookmark = Bookmark.find_by(movie: movie.id, list: @list) %>
+        <li>
+          <%= movie.title %> <%= link_to 'Delete',
+          delete_movies_path(@bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          <%= image_tag movie.poster_url%>
+          <% end %>
+        </li>
+    </ul>
+  </div>
+  <p><%= link_to "Back to my lists", root_path %></p>
+  <%= link_to 'Delete List',
+          delete_list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+</div>
